@@ -28,7 +28,7 @@ app.post('/', (req, res) => {
         const currentWeather = await response.json();
         const temperature = currentWeather.main.temp;
         const weather_des = currentWeather.weather[0].description;
-        console.log(currentWeather, temperature, weather_des);
+        res.json({ temperature, weather_des });
     }
 
 })

@@ -12,8 +12,27 @@ if ('geolocation' in navigator) {
             body: JSON.stringify({lat, lon}),
         }
 
-        const postCoords = fetch('/', options);
+        const response = await fetch('/', options);
+        const weather = await response.json();
         
+
+
+        const container = document.createElement('div');
+        const lat_p = document.createElement('p');
+        const lon_p = document.createElement('p');
+        const temp_p = document.createElement('p');
+        const des_p = document.createElement('p');
+
+
+        lat_p.textContent = `Latitude : ${lat}`;
+        lon_p.textContent = `Longitude : ${lon}`;
+        temp_p.textContent = `Temperature : ${weather.temperature}`;
+        des_p.textContent = `Weather Description : ${weather.weather_des}`;
+
+
+        container.append(lat_p, lon_p, temp_p, des_p);
+
+        document.body.append(container);
     })
 } else {
     console.log("Location not available");

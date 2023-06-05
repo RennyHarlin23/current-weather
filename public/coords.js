@@ -12,7 +12,7 @@ if ('geolocation' in navigator) {
             body: JSON.stringify({lat, lon}),
         }
 
-        const response = await fetch('/home', options);
+        const response = await fetch('/', options);
         const weather = await response.json();
         
 

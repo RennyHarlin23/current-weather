@@ -21,7 +21,7 @@ app.post('/', (req, res) => {
     const API_KEY = process.env.API_KEY;
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`;
 
-    fetch_weather();
+    fetch_weather().catch(err => console.log(err));
 
     async function fetch_weather() {
         const response = await fetch(url);

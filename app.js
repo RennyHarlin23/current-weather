@@ -9,12 +9,12 @@ port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`The server is running in ${port}`));
 
 
-app.get('/', (req, res) => {
+app.get('/home', (req, res) => {
     res.sendFile(__dirname + "/index.html");
 })
 
 
-app.post('/', (req, res) => {
+app.post('/home', (req, res) => {
     
     const lat = req.body.lat;
     const lon = req.body.lon;
